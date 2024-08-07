@@ -82,7 +82,7 @@ export const PostCard = (props) => {
           <p className="ml-2 text-xl text-white">{userData.userName}</p>
         </div>
         <div className=" flex items-center justify-end">
-          <p className="text-lg text-white">Qsn Id:{id}</p>
+          <p className="text-lg text-white">QsnId : {id}</p>
         </div>
         <div
           className=" flex items-center justify-center"
