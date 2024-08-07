@@ -65,7 +65,7 @@ export const Upload = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
-    const res = await fetch("http://localhost:8000/api/qsn/post", {
+    const res = await fetch("https://backend.jeelore.site/api/qsn/post", {
       method: "POST",
       credentials: "include",
       headers: {

@@ -41,7 +41,7 @@ export const PostCard = (props) => {
   const canDel = postedBy === userId;
 
   const handleDelete = async () => {
-    const res = await fetch(`http://localhost:8000/api/qsn/deleteQsn`, {
+    const res = await fetch(`https://backend.jeelore.site/api/qsn/deleteQsn`, {
       credentials: "include",
       method: "POST",
       headers: {

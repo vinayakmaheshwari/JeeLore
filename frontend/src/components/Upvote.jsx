@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 
 export const isUpvotedByUser = async (userId, qsnId) => {
-  const res = await fetch(`http://localhost:8000/api/qsn/getQsnById`, {
+  const res = await fetch(`https://backend.jeelore.site/api/qsn/getQsnById`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -19,7 +19,7 @@ export const isUpvotedByUser = async (userId, qsnId) => {
 };
 
 export const upvote = async (qsnId) => {
-  const res = await fetch(`http://localhost:8000/api/qsn/upvote/${qsnId}`, {
+  const res = await fetch(`https://backend.jeelore.site/api/qsn/upvote/${qsnId}`, {
     headers: {
       "Content-Type": "application/json",
     },

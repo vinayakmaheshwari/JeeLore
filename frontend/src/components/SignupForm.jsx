@@ -38,7 +38,7 @@ export const Signup = () => {
 
     setIsLoading(true);
     try {
-      const res = await fetch(`http://localhost:8000/api/auth/signup`, {
+      const res = await fetch(`https://backend.jeelore.site/api/auth/signup`, {
         method: "POST",
         credentials: 'include',
         withCredentials: true,

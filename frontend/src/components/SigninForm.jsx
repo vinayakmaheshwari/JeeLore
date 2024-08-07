@@ -21,7 +21,7 @@ export const Signin = () => {
     event.preventDefault();
     setIsLoading(true);
     try {
-      const res = await fetch(`http://localhost:8000/api/auth/signin`, {
+      const res = await fetch(`https://backend.jeelore.site/api/auth/signin`, {
         method: "POST",
         credentials: 'include',
         headers: {

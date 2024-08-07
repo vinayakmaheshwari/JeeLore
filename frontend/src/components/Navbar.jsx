@@ -8,7 +8,7 @@ export const Navbar = () => {
   const [isLoading, setIsLoading] = useState(false);
   const handleLogout = async () => {
     setIsLoading(true);
-    const res = await fetch("http://localhost:8000/api/auth/logout", {
+    const res = await fetch("https://backend.jeelore.site/api/auth/logout", {
       credentials: "include",
       method: "POST",
     });

@@ -3,8 +3,9 @@ import { useState } from "react";
 export const getUserById = async (id) => {
   
   try {
-    const res = await fetch(`http://localhost:8000/api/auth/getUserById`, {
+    const res = await fetch(`https://backend.jeelore.site/api/auth/getUserById`, {
       method: "POST",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },

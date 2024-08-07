@@ -8,7 +8,7 @@ export const AllContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const getAuth = async () => {
-    const res = await fetch("http://localhost:8000/api/auth/me", {
+    const res = await fetch("https://backend.jeelore.site/api/auth/me", {
       credentials: "include",
       method: "GET",
     });
@@ -27,7 +27,8 @@ export const AllContextProvider = ({ children }) => {
 
   const getPosts = async (skip, limit, subject, difficulty, type, status ) => {
     setIsLoading(true);
-    const res = await fetch("http://localhost:8000/api/qsn/getPost", {
+    const res = await fetch("https://backend.jeelore.site/api/qsn/getPost", {
+      credentials: "include",
       method: "POST",
       headers: {
         "Content-Type": "application/json",

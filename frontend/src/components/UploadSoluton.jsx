@@ -38,7 +38,7 @@ export const UploadSoluton = (props) => {
   const handleUpload = async () => {
     setIsLoading(true);
     try {
-      const res = await fetch(`http://localhost:8000/api/qsn/postSolution`, {
+      const res = await fetch(`https://backend.jeelore.site/api/qsn/postSolution`, {
         credentials: "include",
         method: "POST",
         headers: {
