@@ -25,7 +25,7 @@ export const Navbar = () => {
     <>
       <div className="navbar z-[1] bg-primary flex justify-between top-0 fixed h-10  border-accent border-b-2">
         <div className="w-40">
-          <a className=" text-3xl font-bold">TheJeeLore</a>
+          <a className=" text-3xl font-bold">JeeLore</a>
         </div>
         <div className="">
           <div className="hidden md:flex"> 
