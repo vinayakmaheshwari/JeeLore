@@ -47,7 +47,7 @@ export const Navbar = () => {
             </li>
             <li>
               <a
-                href={"https://github.com/vinayakmaheshwari"}
+                href={"https://github.com/vinayakmaheshwari/JeeLore"}
                 className="text-xl font-bold"
                 target="_blank"
                 rel="noreferrer"
