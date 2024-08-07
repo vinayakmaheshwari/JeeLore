@@ -11,7 +11,7 @@ export const PracticePostSoln = (props) => {
     });
   }, [postedBy]);
   return (
-    <div className="flex bg-base-100 p-2 rounded-xl w-full mt-4 flex-col ">
+    <div className="flex bg-base-100 p-2 rounded-xl w-11/12 mt-4 flex-col ">
       <div className=" self-start flex items-center">
         <img className="w-8 h-8 rounded-full" src={userData.profileImg} />
         <p className="ml-2 text-sm">{userData.userName}</p>
