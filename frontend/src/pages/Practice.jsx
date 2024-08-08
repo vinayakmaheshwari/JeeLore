@@ -5,6 +5,7 @@ import { AllContext } from "../../context/contex.jsx";
 import { SideBarFilters } from "../components/sideBarFilters.jsx";
 import { Post } from "../components/Post.jsx";
 import { PracticePost } from "../components/PracticePost.jsx";
+import { PracticeFilters } from "../components/PracticeFilters.jsx";
 
 export const Practice = () => {
   const authContext = useContext(AllContext);
@@ -34,16 +35,15 @@ export const Practice = () => {
       <div className="flex flex-1 flex-col">
         <div className="h-20 w-full"></div>
         <div className="flex">
-        {/* <div className="w-1/5 block items-center justify-center">
-          <SideBarFilters
-            diffFilters={diffFilters}
-            subFilters={subFilters}
-            typeFilters={typeFilters}
-            setDiffFilters={setDiffFilters}
-            setSubFilters={setSubFilters}
-            setTypeFilters={setTypeFilters}
-          />
-        </div> */}
+       <PracticeFilters
+       diffFilters={diffFilters}
+       setDiffFilters={setDiffFilters}
+       subFilters={subFilters}
+       setSubFilters={setSubFilters}
+       typeFilters={typeFilters}
+       setTypeFilters={setTypeFilters}
+       status={status}
+       />
         <div className="w-full flex justify-center">
           <PracticePost
             diffFilters={diffFilters}

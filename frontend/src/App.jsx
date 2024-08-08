@@ -10,6 +10,7 @@ import { UploadPage } from "./pages/Upload.jsx";
 import { AllContextProvider } from "../context/contex.jsx";
 import { LeaderboardPage } from "./pages/Leaderboard.jsx";
 
+
 function App() {
   return (
     <>
