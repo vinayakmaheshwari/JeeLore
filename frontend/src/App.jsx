@@ -14,7 +14,7 @@ import { LeaderboardPage } from "./pages/Leaderboard.jsx";
 function App() {
   return (
     <>
-      <HashRouter basename="/app">
+      <HashRouter>
         <AllContextProvider>
           <Navbar />
 
