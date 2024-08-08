@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { Home } from "./pages/Home.jsx";
 import { Practice } from "./pages/Practice.jsx";
@@ -9,12 +9,13 @@ import { Navbar } from "./components/Navbar.jsx";
 import { UploadPage } from "./pages/Upload.jsx";
 import { AllContextProvider } from "../context/contex.jsx";
 import { LeaderboardPage } from "./pages/Leaderboard.jsx";
+import { HashRouter } from "react-router-dom";
 
 
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <HashRouter basename="/app">
         <AllContextProvider>
           <Navbar />
 
@@ -42,7 +43,7 @@ function App() {
             transition:Bounce
           />
         </AllContextProvider>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 }
