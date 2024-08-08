@@ -9,7 +9,6 @@ import { Navbar } from "./components/Navbar.jsx";
 import { UploadPage } from "./pages/Upload.jsx";
 import { AllContextProvider } from "../context/contex.jsx";
 import { LeaderboardPage } from "./pages/Leaderboard.jsx";
-import { HashRouter } from "react-router-dom";
 
 
 function App() {
