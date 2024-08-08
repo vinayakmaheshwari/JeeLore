@@ -13,7 +13,7 @@ export const Post = (props) => {
   const [reloadPost, setReloadPost] = useState(false);
 
   const getQsnNumber = async (subFilters, diffFilters, typeFilters) => {
-    const res = await fetch("https://backend.jeelore.site/api/qsn/countQsns", {
+    const res = await fetch(`https://backend.jeelore.site/api/qsn/countQsns`, {
       method: "POST",
       credentials: "include",
       headers: {

@@ -8,7 +8,7 @@ export const Navbar = () => {
   const [isLoading, setIsLoading] = useState(false);
   const handleLogout = async () => {
     setIsLoading(true);
-    const res = await fetch("https://backend.jeelore.site/api/auth/logout", {
+    const res = await fetch(`https://backend.jeelore.site/api/auth/logout`, {
       credentials: "include",
       method: "POST",
     });
@@ -20,7 +20,7 @@ export const Navbar = () => {
     }
     setIsLoading(false);
   };
-
+  console.log(process.env.NODE_ENV);
   return (
     <>
       <div className="navbar z-[1] bg-primary flex justify-between top-0 fixed h-10  border-accent border-b-2">
