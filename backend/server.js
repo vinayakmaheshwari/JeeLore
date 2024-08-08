@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 8000;
 dotenv.config();
 
 app.use(cors({
-  origin: "https://jeelore.site",
+  origin: true,
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE"],
 }));
