@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { mathsTopics, physicsTopics, chemistryTopics } from "../assets/Topic";
+import { mathsTopics, physicsTopics, chemistryTopics, biologyTopics } from "../assets/Topic";
 
 export const Upload = () => {
   const difficultyList = ["Neet", "JeeMains", "JeeAdvanced", "olympiad"];
@@ -31,6 +31,8 @@ export const Upload = () => {
     topicList = physicsTopics;
   } else if (subject === "Chemistry") {
     topicList = chemistryTopics;
+  } else if (subject === "Biology") {
+    topicList = biologyTopics
   }
 
   const pasteQsn = async () => {

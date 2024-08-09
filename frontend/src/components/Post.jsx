@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AllContext } from "../../context/contex.jsx";
 import { PostCard } from "./PostCard.jsx";
 import { Skeleton } from "./Skeleton.jsx";
-import { mathsTopics, physicsTopics, chemistryTopics } from "../assets/Topic.jsx";
+import { mathsTopics, physicsTopics, chemistryTopics, biologyTopics } from "../assets/Topic.jsx";
 
 export const Post = (props) => {
   const Context = useContext(AllContext);
@@ -12,7 +12,7 @@ export const Post = (props) => {
   const {diffFilters, subFilters, typeFilters,status,limit} = props;
   const [totalPages, setTotalPages] = useState(Math.ceil(numberOfQsn/limit +1));
   const [reloadPost, setReloadPost] = useState(false);
-  const topicFilters = mathsTopics.concat(physicsTopics, chemistryTopics);
+  const topicFilters = mathsTopics.concat(physicsTopics, chemistryTopics,biologyTopics);
 
   const getQsnNumber = async () => {
     const res = await fetch(`https://backend.jeelore.site/api/qsn/countQsns`, {

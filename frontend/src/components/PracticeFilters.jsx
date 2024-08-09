@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { mathsTopics, physicsTopics, chemistryTopics } from "../assets/Topic";
+import { mathsTopics, physicsTopics, chemistryTopics, biologyTopics } from "../assets/Topic";
 
 export const PracticeFilters = (props) => {
   const {
@@ -36,6 +36,9 @@ export const PracticeFilters = (props) => {
   } else if (subFilters === "Chemistry") {
     topicList = chemistryTopics;
     if (topicFilters === "ALL") setTopicFilters(chemistryTopics);
+  } else if (subFilters === "Biology") {
+    topicList = biologyTopics;
+    if (topicFilters === "ALL") setTopicFilters(biologyTopics);
   }
   
   return (

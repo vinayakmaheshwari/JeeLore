@@ -84,3 +84,40 @@ export const chemistryTopics = [
 
 
 ]
+
+export const biologyTopics = [
+   "The Living World",
+   "Biological Classification",
+   "Plant Kingdom",
+    "Animal Kingdom",
+    "Morphology of Flowering Plants",
+    "Anatomy of Flowering Plants",
+    "Structural Organisation In Animals",
+    "CELLS",
+    "Biomolecules",
+    "Cell Cycle and Cell division",
+    "Transport in Plants",
+    "Mineral Nutrition",
+    "Photosynthesis in higher plants",
+    "Respiration in Plants",
+    "Plant Growht and development",
+    "breathing and exchange of gases",
+    "Body fluids and circulation",
+    "excretory products and their elimination",
+    "locomotion and movement",
+    "disorders",
+    "chemical coordination",
+    "sexual reproduction in plants",
+    "human reproduction",
+    "reproductive health",
+    "principles of inheritance",
+    "molecular basis of inheritance",
+    "evolution",
+    "human health and diseases",
+    "microbes in human welfare",
+    "biotechnology",
+    "organisms and populations",
+    "ecosystems",
+    "biodiversity and conservation"
+
+]

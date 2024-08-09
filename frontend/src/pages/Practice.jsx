@@ -5,12 +5,12 @@ import { SideBarFilters } from "../components/sideBarFilters.jsx";
 import { Post } from "../components/Post.jsx";
 import { PracticePost } from "../components/PracticePost.jsx";
 import { PracticeFilters } from "../components/PracticeFilters.jsx";
-import { mathsTopics, physicsTopics, chemistryTopics } from "../assets/Topic.jsx";
+import { mathsTopics, physicsTopics, chemistryTopics, biologyTopics } from "../assets/Topic.jsx";
 
 export const Practice = () => {
   const authContext = useContext(AllContext);
   const status = "Solved";
-  const [topicFilters, setTopicFilters] = useState(mathsTopics.concat(physicsTopics, chemistryTopics));
+  const [topicFilters, setTopicFilters] = useState(mathsTopics.concat(physicsTopics, chemistryTopics, biologyTopics));
   const [diffFilters, setDiffFilters] = useState([
     "Neet",
     "JeeMains",
