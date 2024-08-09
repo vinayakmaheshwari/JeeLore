@@ -4,7 +4,7 @@ import { signin } from "../controllers/signinController.js";
 import { logout } from "../controllers/logoutController.js";
 import { getAuthUser } from "../controllers/getAuthUserController.js";
 import { protectRoute } from "../middlewares/protectRoute.js";
-import { getUserById } from "../controllers/getUserById.js";
+import { getUserById, getUserByIdParams } from "../controllers/getUserById.js";
 
 
 const router = express.Router();
@@ -18,6 +18,8 @@ router.post("/signin", signin);
 router.post("/logout", logout);
 
 router.post("/getUserById", getUserById);
+
+router.post("/getUserByIdParams", getUserByIdParams);
 
 
 
