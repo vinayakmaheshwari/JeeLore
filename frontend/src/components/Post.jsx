@@ -30,7 +30,7 @@ export const Post = (props) => {
 
 
   useEffect(() => {
-    const res = Context.getPosts((currPage - 1) * limit, limit, subFilters, diffFilters, typeFilters,status,).then((data) =>
+    const res = Context.getPosts((currPage - 1) * limit, limit, subFilters, diffFilters, typeFilters,status, topicFilters).then((data) =>
       setPosts(data)
     );
     getQsnNumber(subFilters, diffFilters, typeFilters);
