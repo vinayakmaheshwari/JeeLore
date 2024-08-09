@@ -21,7 +21,7 @@ export const getUserByIdParams = async (req, res) => {
     if (!user) {
       res.status(404).json({ error: "user not found" });
     }
-     else{res.status(200)
+     else{res.status(200)}
   } catch (error) {
     console.log("error in getUserById", error);
     res.status(500).json({ error: "internal server error" });
