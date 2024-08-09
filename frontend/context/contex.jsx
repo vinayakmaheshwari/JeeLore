@@ -37,9 +37,7 @@ export const AllContextProvider = ({ children }) => {
     });
     const data = await res.json();
     setIsLoading(false);
-    console.log(topic)
     return data;
-    setPosts(data);
   };
 
   return (

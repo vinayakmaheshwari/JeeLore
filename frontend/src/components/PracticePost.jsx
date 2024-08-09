@@ -11,6 +11,10 @@ export const PracticePost = (props) => {
   const {diffFilters, subFilters, typeFilters,status,limit,topicFilters} = props;
 
   useEffect(() => {
+    setCurrPage(1);
+  }, [subFilters, diffFilters, typeFilters,topicFilters]);
+
+  useEffect(() => {
     const res = Context.getPosts((currPage - 1) * limit, limit, subFilters, diffFilters, typeFilters,status,topicFilters).then((data) =>
       setPosts(data)
     );
