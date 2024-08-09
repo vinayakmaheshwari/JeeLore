@@ -21,7 +21,7 @@ export const Post = (props) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({subject:subFilters, difficulty:diffFilters, type:typeFilters, status:status}),
+      body: JSON.stringify({subject:subFilters, difficulty:diffFilters, type:typeFilters, status:status,topic:topicFilters}),
     });
     const data = await res.json();
     setNumberOfQsn(data);

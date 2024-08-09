@@ -16,9 +16,9 @@ export const getPost = async (req, res) => {
 }
 
 export const numberOfQsn = async (req, res) => {
-    const { subject, difficulty, type, status } = req.body;
+    const { subject, difficulty, type, status, topic } = req.body;
     try {
-        const qsn = await Qsn.countDocuments({subject: subject, difficulty: difficulty, type: type, status: status });
+        const qsn = await Qsn.countDocuments({subject: subject, difficulty: difficulty, type: type, status: status, topic:topic });
         res.status(200).json(qsn);
     } catch (error) {
         console.log("error in getPostController", error);

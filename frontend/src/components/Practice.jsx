@@ -30,6 +30,7 @@ export const PracticePostCard = (props) => {
     setCurrPage,
     answer,
     solution,
+    totalPages
   } = props;
   const auth = useContext(AllContext);
   const [report, setReport] = useState(false);
@@ -175,6 +176,7 @@ export const PracticePostCard = (props) => {
         <div className="bg-primary h-16 items-center rounded-xl border  border-accent w-3/5 p-4 bottom-8 self-center  flex  justify-between">
           <div>
             <button
+              disabled={currPage === 1}
               onClick={() => setCurrPage(currPage - 1)}
               className="btn text-black font-bold bg-accent hover:bg-info self-start"
             >
@@ -189,6 +191,7 @@ export const PracticePostCard = (props) => {
           </div>
           <div>
             <button
+              disabled={currPage === totalPages}
               onClick={() => setCurrPage(currPage + 1)}
               className="btn text-black  bg-accent hover:bg-info self-end"
             >
