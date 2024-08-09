@@ -13,6 +13,7 @@ import { MdDelete } from "react-icons/md";
 import { toast } from "react-toastify";
 import { PracticePostSoln } from "./PracticePostSoln";
 import { GrPrevious, GrNext } from "react-icons/gr";
+import { Skeleton } from "./Skeleton";
 
 export const PracticePostCard = (props) => {
   const {
@@ -30,7 +31,7 @@ export const PracticePostCard = (props) => {
     setCurrPage,
     answer,
     solution,
-    totalPages
+    totalPages,
   } = props;
   const auth = useContext(AllContext);
   const [report, setReport] = useState(false);
@@ -62,113 +63,135 @@ export const PracticePostCard = (props) => {
 
   return (
     <div className="card border-t border-b border-accent mb-24 mt-5 w-11/12 flex flex-col shadow-xl bg-primary">
-      <div className=" flex justify-between">
-        <div className="w-auto mt-2 ml-5 mb-2 flex items-center ">
-          <img
-            className="rounded-full w-10 h-10"
-            src={userData.profileImg}
-            alt="PFP"
-          />
-          <p className="ml-2 text-xl underline">{userData.userName}</p>
-        </div>
-        <div className=" flex items-center justify-end">
-          <p className="text-lg ">QsnId : {id}</p>
-        </div>
-        <div
-          onClick={() => setReport(!report)}
-          className=" flex items-center justify-center"
-        >
-          <MdOutlineReportProblem className="text-2xl items-center self-center mr-5 flex cursor-pointer text-red-600 hover:text-red-800" />
-        </div>
-      </div>
-
-      <figure>{img && <img src={img} alt="Question Image" />}</figure>
-
-      <div className="card-body mb-4 p-0 block">
-        <p className="text-xl justify-end mt-2 ml-4">{text}</p>
-      </div>
-      <div className="card-actions self-end justify-end mt-2 mr-4">
-        <div className="badge h-full border bg-accent text-black border-black  text-sm items-center justify-center">
-          {difficulty}
-        </div>
-        <div className="badge h-full border bg-accent text-black border-black text-sm items-center justify-center">
-          {subject}
-        </div>
-
-        <div className="badge h-full border  bg-accent text-black border-black text-sm items-center justify-center">
-          {topic}
-        </div>
-      </div>
-      <div className="p-2">
-        {type === "Numerical" && (
-          <input
-            type="number"
-            onChange={(e) => setUserAns(e.target.value)}
-            placeholder="Enter your answer"
-            className={`input w-full bg-base-100 ${
-              isAnswered
-                ? answer === userAns
-                  ? "bg-green-600"
-                  : "bg-red-600"
-                : ""
-            } rounded-xl text-lg focus:outline-none focus-within:outline-none  border-white`}
-          />
-        )}
-        {type === "MCQ" && (
-          <div className="flex justify-center items-center">
-            <div className="w-9/12 grid grid-cols-2 gap-2">
-              {options.map((option) => (
-                <div className={`my-1 mx-2 w-11/12 bg-white rounded-xl  `}>
-                  <button
-                    value={option}
-                    onClick={(e) => setUserAns(e.target.value)}
-                    className={`${userAns === option ? `bg-blue-600` : ``} ${
-                      isAnswered
-                        ? answer === option
-                          ? "bg-green-600"
-                          : ""
-                        : ""
-                    } ${
-                      isAnswered
-                        ? answer !== option && userAns === option
-                          ? "bg-red-600"
-                          : ""
-                        : ""
-                    }
-                    
-                    focus:border-black text-black flex cursor-pointer text-start items-center justify-start w-full bg-base-100 mr-2 rounded-xl ps-4 border-2 border-secondary  dark:border-gray-700`}
-                  >
-                    <label
-                      for="bordered-radio-1"
-                      className="py-2 text-xl font-medium text-gray-900 dark:text-gray-300"
-                    >
-                      {option}
-                    </label>
-                  </button>
-                </div>
-              ))}
+      {!auth.isLoading ? (
+        <>
+          <div className=" flex justify-between">
+            <div className="w-auto mt-2 ml-5 mb-2 flex items-center ">
+              <img
+                className="rounded-full w-10 h-10"
+                src={userData.profileImg}
+                alt="PFP"
+              />
+              <p className="ml-2 text-xl underline">{userData.userName}</p>
+            </div>
+            <div className=" flex items-center justify-end">
+              <p className="text-lg ">QsnId : {id}</p>
+            </div>
+            <div
+              onClick={() => setReport(!report)}
+              className=" flex items-center justify-center"
+            >
+              <MdOutlineReportProblem className="text-2xl items-center self-center mr-5 flex cursor-pointer text-red-600 hover:text-red-800" />
             </div>
           </div>
-        )}
-      </div>
 
-      {showSoln && (
-        <div className="flex mb-5 flex-col justify-center items-center">
-          <h1 className="self-start mx-4 text-xl text-white">
-            Answer: {answer}
-          </h1>
-          <p className="text-2xl font-bold underline justify-start mt-2">
-            Solutions
-          </p>
-          {solution.map((s) => (
-            <>
-              <PracticePostSoln
-                text={s.text}
-                img={s.image}
-                postedBy={s.postedBy}
+          <figure>{img && <img src={img} alt="Question Image" />}</figure>
+
+          <div className="card-body mb-4 p-0 block">
+            <p className="text-xl justify-end mt-2 ml-4">{text}</p>
+          </div>
+          <div className="card-actions self-end justify-end mt-2 mr-4">
+            <div className="badge h-full border bg-accent text-black border-black  text-sm items-center justify-center">
+              {difficulty}
+            </div>
+            <div className="badge h-full border bg-accent text-black border-black text-sm items-center justify-center">
+              {subject}
+            </div>
+
+            <div className="badge h-full border  bg-accent text-black border-black text-sm items-center justify-center">
+              {topic}
+            </div>
+          </div>
+          <div className="p-2">
+            {type === "Numerical" && (
+              <input
+                type="number"
+                onChange={(e) => setUserAns(e.target.value)}
+                placeholder="Enter your answer"
+                className={`input w-full bg-base-100 ${
+                  isAnswered
+                    ? answer === userAns
+                      ? "bg-green-600"
+                      : "bg-red-600"
+                    : ""
+                } rounded-xl text-lg focus:outline-none focus-within:outline-none  border-white`}
               />
-            </>
-          ))}
+            )}
+            {type === "MCQ" ? (
+              <div className="flex justify-center items-center">
+                <div className="w-9/12 grid grid-cols-2 gap-2">
+                  {options.map((option) => (
+                    <div className={`my-1 mx-2 w-11/12 bg-white rounded-xl  `}>
+                      <button
+                        value={option}
+                        onClick={(e) => setUserAns(e.target.value)}
+                        className={`${
+                          userAns === option ? `bg-blue-600` : ``
+                        } ${
+                          isAnswered
+                            ? answer === option
+                              ? "bg-green-600"
+                              : ""
+                            : ""
+                        } ${
+                          isAnswered
+                            ? answer !== option && userAns === option
+                              ? "bg-red-600"
+                              : ""
+                            : ""
+                        }
+                    
+                    focus:border-black text-black flex cursor-pointer text-start items-center justify-start w-full bg-base-100 mr-2 rounded-xl ps-4 border-2 border-secondary  dark:border-gray-700`}
+                      >
+                        <label
+                          for="bordered-radio-1"
+                          className="py-2 text-xl font-medium text-gray-900 dark:text-gray-300"
+                        >
+                          {option}
+                        </label>
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <></>
+            )}
+          </div>
+
+          {showSoln && (
+            <div className="flex mb-5 flex-col justify-center items-center">
+              <h1 className="self-start mx-4 text-xl text-white">
+                Answer: {answer}
+              </h1>
+              <p className="text-2xl font-bold underline justify-start mt-2">
+                Solutions
+              </p>
+              {solution.map((s) => (
+                <>
+                  <PracticePostSoln
+                    text={s.text}
+                    img={s.image}
+                    postedBy={s.postedBy}
+                  />
+                </>
+              ))}
+            </div>
+          )}
+        </>
+      ) : (
+        <div className="text-3xl w-full font-bold justify-center mt-10 items-center text-center">
+          <div className="flex  w-full flex-col ">
+            <div className="flex border border-gray-800 rounded-2xl w-full flex-col gap-4">
+              <div className="skeleton h-64 w-full"></div>
+              <div className="skeleton h-4 w-28"></div>
+              <div className="skeleton h-4 w-full"></div>
+              <div className="skeleton h-4 w-full"></div>
+              <div className="skeleton h-4 w-full"></div>
+              <div className="skeleton h-4 w-full"></div>
+            </div>
+            
+          </div>
         </div>
       )}
 

@@ -50,7 +50,7 @@ export const PracticePost = (props) => {
 
   return (
     <div className=" w-full z-0 container flex  flex-col h-full overflow-y-auto items-center  ">
-      {!Context.isLoading && !posts.error ? (
+     {
         posts.map((post) => (
           <PracticePostCard
             id={post._id}
@@ -71,12 +71,8 @@ export const PracticePost = (props) => {
             totalPages={totalPages}
           />
         ))
-      ) : (
-        <div className="text-3xl w-full font-bold justify-center mt-10 items-center text-center">
-          <Skeleton />
-        </div>
-      )}
       
+}
     </div>
   );
 };
