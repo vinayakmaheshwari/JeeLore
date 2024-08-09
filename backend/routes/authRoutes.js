@@ -19,7 +19,7 @@ router.post("/logout", logout);
 
 router.post("/getUserById", getUserById);
 
-router.post("/getUserByIdParams", getUserByIdParams);
+router.post("/getUserByIdParams/:id", getUserByIdParams);
 
 
 
