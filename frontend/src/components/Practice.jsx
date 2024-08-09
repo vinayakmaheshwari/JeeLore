@@ -60,7 +60,7 @@ export const PracticePostCard = (props) => {
   };
 
   return (
-    <div className="card border-t border-b border-accent mb-24 mt-10 w-11/12 flex flex-col shadow-xl bg-primary">
+    <div className="card border-t border-b border-accent mb-24 mt-5 w-11/12 flex flex-col shadow-xl bg-primary">
       <div className=" flex justify-between">
         <div className="w-auto mt-2 ml-5 mb-2 flex items-center ">
           <img

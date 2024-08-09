@@ -1,4 +1,3 @@
-
 import { Navbar } from "../components/Navbar.jsx";
 import { useContext, useState } from "react";
 import { AllContext } from "../../context/contex.jsx";
@@ -6,10 +5,12 @@ import { SideBarFilters } from "../components/sideBarFilters.jsx";
 import { Post } from "../components/Post.jsx";
 import { PracticePost } from "../components/PracticePost.jsx";
 import { PracticeFilters } from "../components/PracticeFilters.jsx";
+import { mathsTopics, physicsTopics, chemistryTopics } from "../assets/Topic.jsx";
 
 export const Practice = () => {
   const authContext = useContext(AllContext);
-  const status = "Solved"
+  const status = "Solved";
+  const [topicFilters, setTopicFilters] = useState(mathsTopics.concat(physicsTopics, chemistryTopics));
   const [diffFilters, setDiffFilters] = useState([
     "Neet",
     "JeeMains",
@@ -27,32 +28,33 @@ export const Practice = () => {
     "Numerical",
     "Subjective",
   ]);
- 
-  
 
   return (
     <>
       <div className="flex flex-1 flex-col">
         <div className="h-20 w-full"></div>
-        <div className="flex">
-       <PracticeFilters
-       diffFilters={diffFilters}
-       setDiffFilters={setDiffFilters}
-       subFilters={subFilters}
-       setSubFilters={setSubFilters}
-       typeFilters={typeFilters}
-       setTypeFilters={setTypeFilters}
-       status={status}
-       />
-        <div className="w-full flex justify-center">
-          <PracticePost
+        <div className="flex flex-col">
+          <PracticeFilters
             diffFilters={diffFilters}
+            setDiffFilters={setDiffFilters}
             subFilters={subFilters}
+            setSubFilters={setSubFilters}
             typeFilters={typeFilters}
+            setTypeFilters={setTypeFilters}
             status={status}
-            limit={1}
+            topicFilters={topicFilters}
+            setTopicFilters={setTopicFilters}
           />
-        </div>
+          <div className="w-full flex justify-center">
+            <PracticePost
+              diffFilters={diffFilters}
+              subFilters={subFilters}
+              typeFilters={typeFilters}
+              status={status}
+              limit={1}
+              topicFilters={topicFilters}
+            />
+          </div>
         </div>
       </div>
     </>

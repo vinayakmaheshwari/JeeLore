@@ -25,7 +25,7 @@ export const AllContextProvider = ({ children }) => {
 
   const [posts, setPosts] = useState([]);
 
-  const getPosts = async (skip, limit, subject, difficulty, type, status ) => {
+  const getPosts = async (skip, limit, subject, difficulty, type, status, topic ) => {
     setIsLoading(true);
     const res = await fetch(`https://backend.jeelore.site/api/qsn/getPost`, {
       credentials: "include",
@@ -33,10 +33,11 @@ export const AllContextProvider = ({ children }) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ skip, limit, subject, difficulty, type, status }),
+      body: JSON.stringify({ skip, limit, subject, difficulty, type, status, topic }),
     });
     const data = await res.json();
     setIsLoading(false);
+    console.log(topic)
     return data;
     setPosts(data);
   };

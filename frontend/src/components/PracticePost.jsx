@@ -8,13 +8,13 @@ export const PracticePost = (props) => {
   const Context = useContext(AllContext);
   const [currPage, setCurrPage] = useState(1);
   const [posts, setPosts] = useState([]);
-  const {diffFilters, subFilters, typeFilters,status,limit} = props;
+  const {diffFilters, subFilters, typeFilters,status,limit,topicFilters} = props;
 
   useEffect(() => {
-    const res = Context.getPosts((currPage - 1) * limit, limit, subFilters, diffFilters, typeFilters,status).then((data) =>
+    const res = Context.getPosts((currPage - 1) * limit, limit, subFilters, diffFilters, typeFilters,status,topicFilters).then((data) =>
       setPosts(data)
     );
-  }, [currPage, subFilters, diffFilters, typeFilters]);
+  }, [currPage, subFilters, diffFilters, typeFilters,topicFilters]);
 
   return (
     <div className=" w-full z-0 container flex  flex-col h-full overflow-y-auto items-center  ">
