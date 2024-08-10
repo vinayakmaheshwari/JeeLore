@@ -71,7 +71,7 @@ export const UploadSoluton = (props) => {
 
   return (
     <div className="border-t border-accent pb-4 h-full flex flex-1 flex-col justify-center items-center w-full rounded-b-xl">
-      <p className="text-lg mt-2 underline font-bold">Upload Solution</p>
+      <p className="lg:text-lg text-sm mt-2 underline font-bold">Upload Solution</p>
       <div>
         {type !== "Subjective" && !answer && (
           <div className="flex flex-col justify-center items-center mt-5">
@@ -80,7 +80,7 @@ export const UploadSoluton = (props) => {
                 <h1 className="text-xl">Answer:</h1>
                 <select
                   onChange={(e) => setAns(e.target.value)}
-                  className="mx-5 text-sm  select select-bordered"
+                  className="mx-5 text-xs lg:text-sm  select select-bordered"
                 >
                   <option disabled selected>
                     Select
@@ -94,12 +94,12 @@ export const UploadSoluton = (props) => {
             )}
             {type === "Numerical" && (
               <>
-                <h1 className="text-xl">Answer:</h1>
+                <h1 className=" text-sm lg:text-xl">Answer:</h1>
                 <input
                   type="text"
                   placeholder="Answer"
                   onChange={(e) => setAns(e.target.value)}
-                  className="mx-4 input input-bordered w-full max-w-xs text-xl"
+                  className="mx-4 input input-bordered w-full max-w-xs text-sm lg:text-xl"
                 />
               </>
             )}
@@ -108,7 +108,7 @@ export const UploadSoluton = (props) => {
       </div>
       <div className="mt-5 w-5/6">
         <textarea
-          className="textarea bg-secondary text-black placeholder:text-black textarea-bordered h-20 w-full text-xl "
+          className="textarea bg-secondary text-black placeholder:text-black textarea-bordered h-12 lg:h-20 w-full text-sm lg:text-xl "
           placeholder="Description (optional)"
           onChange={(e) => setSolnText(e.target.value)}
           value={solnText}
@@ -119,13 +119,13 @@ export const UploadSoluton = (props) => {
           type="file"
           ref={solImg}
           onChange={handleSolnImgChange}
-          className="file-input bg-primary text-secondary file-input-bordered file-input-secondary w-full max-w-xs"
+          className="file-input w-[12rem] text-sm file-input-sm bg-primary text-secondary file-input-bordered file-input-secondary lg:w-full max-w-xs"
         />
-        <button className="btn mx-4 btn-secondary" onClick={pasteSoln}>
+        <button className="lg:mx-4 mx-2 btn-sm lg:btn lg:btn-secondary rounded-lg bg-secondary text-black  h-[2rem]" onClick={pasteSoln}>
           Paste
         </button>
         <button
-          className="btn btn-secondary"
+          className="lg:btn lg:mx-4 mx-2 btn-sm lg:btn-secondary rounded-lg bg-secondary text-black  h-[2rem]"
           onClick={() => {
             setSolnImage(null);
             solImg.current.value = "";

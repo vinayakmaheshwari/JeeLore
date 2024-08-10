@@ -80,7 +80,7 @@ export const Signup = () => {
 
   return (
     <>
-      <div className="mx-auto flex min-h-full flex-1 flex-col justify-center items-center px-6 py-12 lg:px-8 w-2/6">
+      <div className="mx-auto flex min-h-full flex-1 flex-col justify-center items-center px-6 py-12 lg:px-8 w-5/6">
         <div className="mt-14 sm:mx-auto sm:w-full sm:max-w-sm">
           <h2 className=" text-center text-2xl font-bold leading-9 tracking-tight text-white">
             Create a new account

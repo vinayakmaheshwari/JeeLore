@@ -16,7 +16,7 @@ function App() {
     <>
       <HashRouter>
         <AllContextProvider>
-          <Navbar />
+          <Navbar/>
 
           <Routes>
             <Route path="/" element={<Home />} />

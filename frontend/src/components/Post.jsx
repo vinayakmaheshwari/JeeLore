@@ -37,7 +37,7 @@ export const Post = (props) => {
   }, [currPage, subFilters, diffFilters, typeFilters, reloadPost]);
 
   return (
-    <div className=" w-11/12 z-0 container flex  flex-col h-full overflow-y-auto items-center  ">
+    <div className="w-11/12 z-0 container flex  flex-col h-full overflow-y-auto items-center  ">
       {!Context.isLoading && !posts.error ? (
          posts.map((post, index) => (
           <PostCard

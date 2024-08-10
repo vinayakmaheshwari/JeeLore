@@ -130,7 +130,7 @@ export const Upload = () => {
       <div className=" mx-auto flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 items-center align-middle w-full">
         <div className="bg-primary rounded-lg mt-16 mx-auto flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 items-center align-middle w-11/12">
           <h1 className="text-3xl font-bold text-secondary">Upload Question</h1>
-          <div className="flex mt-5">
+          <div className="flex flex-col justify-center lg:flex mt-5">
             <select
               onChange={(e) => setDifficulty(e.target.value)}
               className="mx-5 text-xl bg-secondary text-black select border-2 border-black"
@@ -195,7 +195,7 @@ export const Upload = () => {
           </div>
           <div className="mt-5 w-5/6">
             <textarea
-              className="textarea  border-2 border-black bg-secondary text-black placeholder:text-black h-20 w-full text-xl "
+              className="textarea  border-2 border-black bg-secondary text-black placeholder:text-black h-20 w-full text-sm lg:text-xl "
               placeholder="Description (optional)"
               onChange={(e) => setText(e.target.value)}
             ></textarea>
@@ -205,7 +205,7 @@ export const Upload = () => {
               type="file"
               ref={qsnImg}
               onChange={handleQsnImgChange}
-              className="file-input bg-primary text-secondary file-input-bordered file-input-secondary w-full max-w-xs"
+              className="file-input bg-primary text-secondary file-input-bordered file-input-secondary w-full lg:w-full max-w-xs"
             />
             <button className="btn mx-4 btn-secondary" onClick={pasteQsn}>
               Paste

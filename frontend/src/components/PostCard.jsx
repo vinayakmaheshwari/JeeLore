@@ -71,18 +71,18 @@ export const PostCard = (props) => {
   }, [id, userId]);
 
   return (
-    <div className="card  mt-10 w-full border-b border-t border-accent bg-primary">
+    <div className="card mt-5 lg:mt-10 w-full border-b border-t border-accent bg-primary">
       <div className=" flex justify-between">
-        <div className="w-auto mt-2 ml-5 mb-2 flex items-center ">
+        <div className="w-auto mt-2 ml-2 lg:ml-5 mb-2 flex items-center ">
           <img
-            className="rounded-full w-10 h-10"
+            className="rounded-full w-8 h-8 lg:w-10 lg:h-10"
             src={userData.profileImg}
             alt="PFP"
           />
-          <p className="ml-2 text-xl text-white">{userData.userName}</p>
+          <p className="ml-2 text-sm lg:text-xl text-white">{userData.userName}</p>
         </div>
         <div className=" flex items-center justify-end">
-          <p className="text-lg text-white">QsnId : {id}</p>
+          <p className="lg:text-lg text-xs text-white">QsnId : {id}</p>
         </div>
         <div
           className=" flex items-center justify-center"
@@ -90,7 +90,7 @@ export const PostCard = (props) => {
           {canDel && (
             <MdDelete
               onClick={handleDelete}
-              className="text-4xl items-center self-center mr-2 flex cursor-pointer text-red-600 hover:text-red-800"
+              className="lg:text-4xl text-xl items-center self-center mr-2 flex cursor-pointer text-red-600 hover:text-red-800"
             />
           )}
 
@@ -112,11 +112,11 @@ export const PostCard = (props) => {
 
       <figure>{img && <img src={img} alt="Question Image" />}</figure>
 
-      <div className="card-body mb-4 p-0 block">
+      <div className="card-body mb-2 lg:mb-4 p-0 block">
         <p className="text-xl justify-end mt-2 ml-4 text-white">{text}</p>
 
-        <div className="flex justify-between mt-4">
-          <div className="ml-4 flex mt-2 items-center border border-accent rounded-xl">
+        <div className="flex justify-between lg:mt-4">
+          <div className="lg:ml-4 ml-2 flex mt-2 h-fit w-fit items-center border border-accent rounded-xl">
             <div
               onClick={() => {
                 if(auth.isLoggedIn){
@@ -129,14 +129,14 @@ export const PostCard = (props) => {
                   
                 }
               }}
-              className={` flex items-center justify-center border-r border-accent cursor-pointer rounded-l-xl hover:bg-base-200`}
+              className={`flex items-center justify-center border-r border-accent cursor-pointer rounded-l-xl hover:bg-base-200`}
             >
               {isUpvote ? (
-                <BiSolidUpvote className={`text-lg ml-2 mr-1 text-accent`} />
+                <BiSolidUpvote className={`text-sm lg:text-lg lg:ml-2 mr-1 text-accent`} />
               ) : (
-                <BiUpvote className="text-lg ml-2 mr-1 text-info" />
+                <BiUpvote className="text-sm lg:text-lg lg:ml-2 mr-1 text-info" />
               )}
-              <div className="mr-2 text-center text-accent text-lg">{noOfUpvotes}</div>
+              <div className="mr-2 text-center text-accent text-sm lg:text-lg">{noOfUpvotes}</div>
             </div>
             {/* <div
               onClick={() => {
@@ -159,27 +159,27 @@ export const PostCard = (props) => {
               className="cursor-pointer hover:bg-base-200 rounded-r-xl"
             >
               {showSoln ? (
-                <FaCommentAlt className="text-md m-2 text-accent" />
+                <FaCommentAlt className="text-xs lg:text-md m-2 text-accent" />
               ) : (
-                <FaRegCommentAlt className="text-md m-2 text-info" />
+                <FaRegCommentAlt className="text-xs lg:text-md m-2 text-info" />
               )}
             </div>
           </div>
-          <div className="justify-end mr-4">
-            <div className="card-actions self-end justify-end mt-4 ml-4">
-              <div className="badge h-full border bg-accent text-black border-black  text-sm items-center justify-center">
+          <div className="justify-end mr-2 lg:mr-4">
+            <div className="card-actions self-end justify-end mt-2 ml-2 lg:mt-4 lg:ml-4">
+              <div className="badge h-full border bg-accent text-black border-black text-xs lg:text-sm items-center justify-center">
                 {difficulty}
               </div>
-              <div className="badge h-full border bg-accent text-black border-black text-sm items-center justify-center">
+              <div className="badge h-full border bg-accent text-black border-black text-xs lg:text-sm items-center justify-center">
                 {subject}
               </div>
-              <div className="badge h-full border  bg-accent text-black border-black text-sm items-center justify-center">
+              <div className="badge h-full border  bg-accent text-black border-black text-xs lg:text-sm items-center justify-center">
                 {type}
               </div>
-              <div className="badge h-full border  bg-accent text-black border-black text-sm items-center justify-center">
+              <div className="badge h-full border  bg-accent text-black border-black text-xs lg:text-sm items-center justify-center">
                 {topic}
               </div>
-              <div className="badge h-full border  bg-accent text-black border-black text-sm items-center justify-center">
+              <div className="badge h-full border  bg-accent text-black border-black text-xs lg:text-sm items-center justify-center">
                 {status}
               </div>
             </div>

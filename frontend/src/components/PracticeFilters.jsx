@@ -43,10 +43,11 @@ export const PracticeFilters = (props) => {
   
   return (
     <div className="flex w-full justify-center items-center">
-      <div className="w-11/12 rounded-xl block items-center justify-start">
+      <div className="lg:w-11/12 w-full rounded-xl block lg:flex justify-center items-center lg:justify-start">
+      <div className="flex justify-center">
         <select
           onChange={(e) => setUserSubject(e.target.value)}
-          className="mx-5 text-xl bg-primary text-white select border-2 border-accent"
+          className="lg:mx-5 mx-1  text-sm lg:text-xl bg-primary h-fit lg:select lg:border-accent lg:bg-primary p-1 rounded-xl w-fit text-white  border lg:border-2 border-accent"
         >
           <option disabled selected>
             Subject
@@ -58,7 +59,7 @@ export const PracticeFilters = (props) => {
         </select>
         <select
           onChange={(e) => setDiffFilters(e.target.value)}
-          className="mx-5 text-xl bg-primary text-white select border-2 border-accent"
+          className="lg:mx-5 mx-1  text-sm lg:text-xl bg-primary h-fit lg:select lg:border-accent lg:bg-primary p-1 rounded-xl w-fit text-white  border lg:border-2 border-accent"
         >
           <option disabled selected>
             Difficulty
@@ -67,9 +68,11 @@ export const PracticeFilters = (props) => {
             <option value={difficulty}>{difficulty}</option>
           ))}
         </select>
+        </div>
+        <div className="flex mt-1 justify-center">
         <select
           onChange={(e) => setTopicFilters(e.target.value)}
-          className="mx-5 text-xl bg-primary text-white select border-2 border-accent"
+          className="lg:mx-5 mx-1  text-sm lg:text-xl bg-primary h-fit lg:select lg:border-accent lg:bg-primary p-1 rounded-xl w-fit text-white  border lg:border-2 border-accent"
         >
           <option disabled >
             Topic
@@ -79,6 +82,7 @@ export const PracticeFilters = (props) => {
             <option value={topic}>{topic}</option>
           ))}
         </select>
+        </div>
       </div>
     </div>
   );
