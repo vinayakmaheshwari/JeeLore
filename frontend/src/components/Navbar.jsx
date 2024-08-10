@@ -87,7 +87,7 @@ export const Navbar = () => {
         </div>
 
         <div className="flex justify-between w-full">
-          <div> </div>
+          <div className="lg:hidden"> </div>
           <div className="flex self-center justify-center lg:justify-start ">
             <a className="text-3xl font-bold self-center">JeeLore</a>
           </div>
