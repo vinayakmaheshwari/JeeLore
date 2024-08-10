@@ -14,6 +14,10 @@ export const getUserById = async (req, res) => {
   }
 };
 
+
+// below function is resolving the render inactivity issue i've set a cron-job from 
+// https://console.cron-job.org/jobs that sends a req every 10 min this function is to 
+// respond to that req so that server dont spin down
 export const getUserByIdParams = async (req, res) => {
   try {
     const { id:id } = req.params;
