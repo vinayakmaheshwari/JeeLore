@@ -35,7 +35,7 @@ export const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-xl border-r mt-2 border-accent self-start dropdown-content bg-primary z-[1] w-52 p-2 shadow"
+            className="menu menu-xl border-r border-b border-l mt-2 border-accent self-start dropdown-content bg-primary z-[1] w-52 p-2 shadow"
           >
             <li>
               <NavLink to="/" className="text-xl font-bold">
