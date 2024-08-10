@@ -71,11 +71,7 @@ export const Navbar = () => {
 
             {!Context.isLoggedIn && (
               <>
-                <li className="text-xl font-bold">
-                  <NavLink to="/signin" className="text-xl font-bold nav-item">
-                    SignIn
-                  </NavLink>
-                </li>
+                
                 <li className="text-xl font-bold">
                   <NavLink to="/signup" className="text-xl font-bold nav-item">
                     SignUp
@@ -125,29 +121,9 @@ export const Navbar = () => {
                 </NavLink>
               </li>
 
-              {!Context.isLoggedIn && (
-                <>
-                  <li className="text-xl font-bold">
-                    <NavLink
-                      to="/signin"
-                      className="text-xl font-bold nav-item"
-                    >
-                      SignIn
-                    </NavLink>
-                  </li>
-                  <li className="text-xl font-bold">
-                    <NavLink
-                      to="/signup"
-                      className="text-xl font-bold nav-item"
-                    >
-                      SignUp
-                    </NavLink>
-                  </li>
-                </>
-              )}
             </ul>
           </div>
-          {Context.isLoggedIn && (
+          {Context.isLoggedIn ?  (
             <div className="dropdown dropdown-end">
               <div
                 tabIndex={0}
@@ -177,7 +153,27 @@ export const Navbar = () => {
                 </li>
               </ul>
             </div>
-          )}
+          ): (<div>
+            <ul className="flex">
+            <li className="text-xl font-bold">
+                    <NavLink
+                      to="/signin"
+                      className="mr-2 text-xl font-bold nav-item"
+                    >
+                      SignIn
+                    </NavLink>
+                  </li>
+                  <li className=" ml-2 text-xl hidden lg:flex font-bold">
+                    <NavLink
+                      to="/signup"
+                      className=" text-xl font-bold nav-item"
+                    >
+                      SignUp
+                    </NavLink>
+                  </li>
+                  
+            </ul>
+          </div>)}
         </div>
       </div>
     </>
