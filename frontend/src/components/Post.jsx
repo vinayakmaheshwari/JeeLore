@@ -61,8 +61,8 @@ export const Post = (props) => {
           <Skeleton  /> 
         </div>
       )}
-      <div className="w-full mt-10 flex bottom-0 justify-center">
-        <div className="w-1/5 flex justify-end">
+      <div className="w-full mt-5 lg:mt-10 flex bottom-0 justify-center">
+        <div className="w-2/5 lg:w-1/5 flex justify-end">
           <button
             disabled={currPage === 1}
             onClick={() => setCurrPage(currPage - 1)}
@@ -71,10 +71,10 @@ export const Post = (props) => {
             Previous
           </button>
         </div>
-        <div className="w-1/12 flex justify-center">
+        <div className="w-1/5 flex justify-center">
           <button className="h-full rounded-xl cursor-text border w-full border-accent btn-primary self-start">{currPage}</button>
         </div>
-        <div className="w-1/5">
+        <div className="w-2/5 lg:w-1/5">
           <button
             disabled={currPage === totalPages}
             onClick={() => setCurrPage(currPage + 1)}

@@ -123,7 +123,7 @@ export const Signup = () => {
             <div>
               <label
                 htmlFor="lastName"
-                className="block text-sm font-medium leading-6 text-white text-xl"
+                className="block font-medium leading-6 text-white text-xl"
               >
                 Last Name
               </label>
@@ -143,7 +143,7 @@ export const Signup = () => {
             <div>
               <label
                 htmlFor="userName"
-                className="block text-sm font-medium leading-6 text-white text-xl"
+                className="block font-medium leading-6 text-white text-xl"
               >
                 User Name
               </label>
@@ -167,7 +167,7 @@ export const Signup = () => {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium leading-6 text-white text-xl"
+                className="block font-medium leading-6 text-white text-xl"
               >
                 Email address
               </label>
@@ -192,7 +192,7 @@ export const Signup = () => {
               <div className="flex items-center justify-between">
                 <label
                   htmlFor="password"
-                  className="block text-sm font-medium leading-6 text-white text-xl"
+                  className="block font-medium leading-6 text-white text-xl"
                 >
                   Password
                 </label>
