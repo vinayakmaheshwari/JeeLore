@@ -130,7 +130,7 @@ export const Upload = () => {
       <div className=" mx-auto flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 items-center align-middle w-full">
         <div className="bg-primary rounded-lg mt-16 mx-auto flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 items-center align-middle w-11/12">
           <h1 className="text-3xl font-bold text-secondary">Upload Question</h1>
-          <div className="flex flex-col justify-center lg:flex mt-5">
+          <div className="grid grid-cols-1 justify-center lg:flex mt-5">
             <select
               onChange={(e) => setDifficulty(e.target.value)}
               className="mx-5 text-xl bg-secondary text-black select border-2 border-black"
