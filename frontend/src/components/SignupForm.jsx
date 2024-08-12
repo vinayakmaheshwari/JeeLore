@@ -1,15 +1,19 @@
 import { useState, useContext, useRef } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
 import { AllContext } from "../../context/contex";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 export const Signup = () => {
   const navigate = useNavigate();
   const pfpUpload = useRef(null);
-  const [pfpImage, setPfpImage] = useState("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqCvGZvoVQc9RCra5dB-yneBsEGSx5vdkKeQ&s");
+  const [pfpImage, setPfpImage] = useState(
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqCvGZvoVQc9RCra5dB-yneBsEGSx5vdkKeQ&s"
+  );
   const authContext = useContext(AllContext);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const [userData, setUserData] = useState({
     firstName: "",
     lastName: "",
@@ -40,7 +44,7 @@ export const Signup = () => {
     try {
       const res = await fetch(`https://backend.jeelore.site/api/auth/signup`, {
         method: "POST",
-        credentials: 'include',
+        credentials: "include",
         withCredentials: true,
         headers: {
           "Content-Type": "application/json",
@@ -51,11 +55,11 @@ export const Signup = () => {
           userName: userData.userName,
           email: userData.email,
           password: userData.password,
-          profileImg: pfpImage
+          profileImg: pfpImage,
         }),
       });
       const res_data = await res.json();
-     
+
       setError(res_data.error);
 
       if (res.ok) {
@@ -65,17 +69,14 @@ export const Signup = () => {
           userName: "",
           email: "",
           password: "",
-        
         });
         authContext.setIsLoggedIn(true);
-        toast("Account created successfully")
-        navigate('/')
+        toast("Account created successfully");
+        navigate("/");
         setIsLoading(false);
       }
       setIsLoading(false);
-    } catch (error) {
-      
-    }
+    } catch (error) {}
   };
 
   return (
@@ -90,11 +91,20 @@ export const Signup = () => {
         <div className="mt-5 justify-center flex flex-col  sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6 justify-center flex flex-col ">
             <div className=" w-full h-full  flex flex-col  items-center">
-              
               <div className="w-24  border border-gray-600 h-24 rounded-full bg-primary flex justify-center items-center">
-              <img onClick={() => pfpUpload.current.click()} className="w-full h-full rounded-full" src={pfpImage} alt=""/>
+                <img
+                  onClick={() => pfpUpload.current.click()}
+                  className="w-full h-full rounded-full"
+                  src={pfpImage}
+                  alt=""
+                />
               </div>
-              <input onChange={handlePfpImgChange} className="hidden" ref={pfpUpload} type="file" />
+              <input
+                onChange={handlePfpImgChange}
+                className="hidden"
+                ref={pfpUpload}
+                type="file"
+              />
             </div>
             <div>
               <label
@@ -198,16 +208,29 @@ export const Signup = () => {
                 </label>
               </div>
               <div className="mt-2">
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  required
-                  value={userData.password}
-                  onChange={handleInput}
-                  autoComplete="current-password"
-                  className="block bg-primary text-center w-full rounded-md border-0 py-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:text-2xl focus:ring-2 focus:ring-inset  text-2xl sm:leading-6"
-                />
+                <label className="input border border-slate-300 input-bordered bg-primary flex items-center gap-2">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    name="password"
+                    value={userData.password}
+                    onChange={handleInput}
+                    className="grow"
+                  />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                    className="h-4 w-4 opacity-70"
+                  >
+                    {showPassword ? (
+                      <FaEyeSlash
+                        onClick={() => setShowPassword(!showPassword)}
+                      />
+                    ) : (
+                      <FaEye onClick={() => setShowPassword(!showPassword)} />
+                    )}
+                  </svg>
+                </label>
               </div>
               {!userData.password && (
                 <p className="text-red-600">Password is required</p>

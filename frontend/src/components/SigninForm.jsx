@@ -1,13 +1,16 @@
 import { useEffect, useState, useContext } from "react";
 import { AllContext } from "../../context/contex.jsx";
 import { NavLink, useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
 export const Signin = () => {
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const authContext = useContext(AllContext);
+  const [showPassword, setShowPassword] = useState(false);
   const [userData, setUserData] = useState({
     email: "",
     password: "",
@@ -23,7 +26,7 @@ export const Signin = () => {
     try {
       const res = await fetch(`https://backend.jeelore.site/api/auth/signin`, {
         method: "POST",
-        credentials: 'include',
+        credentials: "include",
         headers: {
           "Content-Type": "application/json",
         },
@@ -43,16 +46,14 @@ export const Signin = () => {
         });
         authContext.setIsLoggedIn(true);
         toast("logged in successfully");
-        navigate("/")
+        navigate("/");
         setIsLoading(false);
-
       }
       setIsLoading(false);
       return res_data;
-    } catch (error) {
-    
-    }
+    } catch (error) {}
   };
+  console.log(userData);
 
   return (
     <>
@@ -96,20 +97,21 @@ export const Signin = () => {
                 </label>
               </div>
               <div className="mt-2">
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  required
-                  onChange={handleInput}
-                  value={userData.password}
-                  autoComplete="current-password"
-                  className="block bg-primary text-center w-full rounded-md border-0 py-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:text-2xl focus:ring-2 focus:ring-inset  text-2xl sm:leading-6"
-                />
+              <label className="input border border-slate-300 input-bordered bg-primary flex items-center gap-2">
+              <input type={showPassword ? "text" : "password"} name="password" value={userData.password} onChange={handleInput} className="grow" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                className="h-4 w-4 opacity-70"
+              >
+                {showPassword ? <FaEyeSlash onClick={() => setShowPassword(!showPassword)}/> : <FaEye onClick={() => setShowPassword(!showPassword)} />}
+              </svg>
+            </label>
               </div>
               {error && <p className="text-red-500">{error}</p>}
             </div>
-
+            
             <div>
               <button
                 type="none"

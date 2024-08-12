@@ -3,6 +3,8 @@ import { useState, useContext } from "react";
 import { toast } from "react-toastify";
 import { AllContext } from "../../context/contex";
 import { TiThMenu } from "react-icons/ti";
+import Cookies from "js-cookie";
+
 
 export const Navbar = () => {
   const Context = useContext(AllContext);
@@ -11,17 +13,17 @@ export const Navbar = () => {
     setIsLoading(true);
     const res = await fetch(`https://backend.jeelore.site/api/auth/logout`, {
       credentials: "include",
-      method: "POST",
+      method: "GET",
     });
 
     if (res.ok) {
+      Cookies.remove("token");
       Context.setIsLoggedIn(false);
       setIsLoading(false);
       toast("Logged out successfully");
     }
     setIsLoading(false);
   };
-
   return (
     <>
       <div className="navbar z-[1] bg-primary flex  top-0 fixed h-10  border-accent border-b-2">
