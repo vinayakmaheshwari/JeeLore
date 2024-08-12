@@ -218,16 +218,15 @@ export const Signup = () => {
                   />
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 16 16"
+                    viewBox="0 0 20 20"
                     fill="currentColor"
-                    className="h-4 w-4 opacity-70"
+                    className="h-6 w-6 opacity-70"
+                    onClick={() => setShowPassword(!showPassword)}
                   >
                     {showPassword ? (
-                      <FaEyeSlash
-                        onClick={() => setShowPassword(!showPassword)}
-                      />
+                      <FaEyeSlash className="text-xl" />
                     ) : (
-                      <FaEye onClick={() => setShowPassword(!showPassword)} />
+                      <FaEye className="text-xl" />
                     )}
                   </svg>
                 </label>

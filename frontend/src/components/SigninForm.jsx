@@ -101,11 +101,12 @@ export const Signin = () => {
               <input type={showPassword ? "text" : "password"} name="password" value={userData.password} onChange={handleInput} className="grow" />
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 16 16"
+                viewBox="0 0 20 20"
                 fill="currentColor"
-                className="h-4 w-4 opacity-70"
+                className="h-6 w-6 opacity-70"
+                onClick={() => setShowPassword(!showPassword)}
               >
-                {showPassword ? <FaEyeSlash onClick={() => setShowPassword(!showPassword)}/> : <FaEye onClick={() => setShowPassword(!showPassword)} />}
+                {showPassword ? <FaEyeSlash className="text-xl" /> : <FaEye className="text-xl"/>}
               </svg>
             </label>
               </div>
