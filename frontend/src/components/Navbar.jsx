@@ -141,9 +141,9 @@ export const Navbar = () => {
                 className="menu menu-xl border border-accent dropdown-content bg-primary rounded-box z-[1] mt-3 w-52 p-2 shadow"
               >
                 <li>
-                  <a className="justify-between text-lg">
+                  <NavLink to="/profile" className="justify-between text-lg">
                     {Context.auth.userName}
-                  </a>
+                  </NavLink>
                 </li>
                 {/* <li>
                   <NavLink to="/settings" className="text-lg">Settings</NavLink>

@@ -9,6 +9,7 @@ import { Navbar } from "./components/Navbar.jsx";
 import { UploadPage } from "./pages/Upload.jsx";
 import { AllContextProvider } from "../context/contex.jsx";
 import { LeaderboardPage } from "./pages/Leaderboard.jsx";
+import { ProfilePage } from "./pages/Profile.jsx";
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
             <Route path="/practice" element={<Practice />} />
             <Route path="/settings" element={<SettingsPage />} />
             <Route path="/leaderboard" element={<LeaderboardPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
           </Routes>
 
           <ToastContainer
