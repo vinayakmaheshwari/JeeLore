@@ -17,7 +17,7 @@ export const Navbar = () => {
     });
 
     if (res.ok) {
-      Cookies.remove("token", {path: "/"});
+      Cookies.remove("token", {path: '/'});
       Context.setIsLoggedIn(false);
       setIsLoading(false);
       toast("Logged out successfully");
