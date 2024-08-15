@@ -17,7 +17,7 @@ export const Navbar = () => {
     });
 
     if (res.ok) {
-      Cookies.remove("token");
+      Cookies.remove("token", {path: "/"});
       Context.setIsLoggedIn(false);
       setIsLoading(false);
       toast("Logged out successfully");
@@ -132,7 +132,7 @@ export const Navbar = () => {
                 role="button"
                 className="btn btn-ghost btn-circle avatar"
               >
-                <div className="w-15 rounded-full border border-accent">
+                <div className="w-15 rounded-full border border-info">
                   <img alt="PFP" src={Context.auth.profileImg} />
                 </div>
               </div>
