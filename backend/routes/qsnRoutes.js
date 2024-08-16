@@ -10,6 +10,7 @@ import { approveSolution } from "../controllers/approveSolutionController.js";
 import { getPost, numberOfQsn } from "../controllers/getPost.js";
 import { getQsnById } from "../controllers/getQsnById.js";
 import { getNoOfUpvotes } from "../controllers/getNoOfUpvotesController.js";
+import { getUserPost } from "../controllers/getUserPost.js";
 
 const router = express.Router();
 
@@ -24,5 +25,5 @@ router.post("/approveSolution/:id/:solutionId", protectRoute, approveSolution);
 router.post("/getQsnById", getQsnById );
 router.post("/countQsns", numberOfQsn );
 router.post("/getNoOfUpvotes", getNoOfUpvotes );
-
+router.post("/getUserPost" , getUserPost );
 export default router;
