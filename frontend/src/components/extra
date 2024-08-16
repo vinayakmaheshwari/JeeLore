@@ -1,0 +1,95 @@
+<div className="navbar z-[1] bg-primary flex  top-0 fixed h-10  border-accent border-b-2">
+        
+        <div><TiThMenu className="text-3xl cursor-pointer lg:hidden" /></div>
+        <div className="w-full flex justify-end lg:justify-start bg-white">
+          <a className=" text-3xl font-bold self-end">JeeLore</a>
+        </div>
+        <div className="justify-end bg-accent w-full">
+          <div className="self-end absolute lg:relative"> 
+          <ul className="menu lg:flex-row flex-col menu-vertical lg:menu-horizontal hidden lg:top-[inherit] ">
+            <li>
+              <NavLink to="/" className="text-xl font-bold">
+                Solve
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to={"/practice"} className="text-xl font-bold">
+                Practice
+              </NavLink>
+            </li>
+            <li className="text-xl font-bold">
+              <NavLink to={"/upload"} className="nav-item">
+                Upload
+              </NavLink>
+            </li>
+            <li>
+              <a
+                href={"https://github.com/vinayakmaheshwari/JeeLore"}
+                className="text-xl font-bold"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Contribute
+              </a>
+            </li>
+
+            <li>
+              <NavLink 
+                to="/leaderboard"
+                className="text-xl font-bold"
+              >
+                Leaderboard
+              </NavLink>
+            </li>
+
+            {!Context.isLoggedIn && (
+              <>
+                <li className="text-xl font-bold">
+                  <NavLink to="/signin" className="text-xl font-bold nav-item">
+                    SignIn
+                  </NavLink>
+                </li>
+                <li className="text-xl font-bold">
+                  <NavLink to="/signup" className="text-xl font-bold nav-item">
+                    SignUp
+                  </NavLink>
+                </li>
+              </>
+            )}
+          </ul>
+          </div>
+          {Context.isLoggedIn && (
+            <div className="dropdown dropdown-end">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle avatar"
+              >
+                <div className="w-15 rounded-full border border-accent">
+                  <img alt="PFP"
+                   src={Context.auth.profileImg}
+                  
+                  />
+                </div>
+              </div>
+              <ul
+                tabIndex={0}
+                className="menu menu-xl border border-accent dropdown-content bg-primary rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              >
+                <li>
+                  <a className="justify-between text-lg">{Context.auth.userName}</a>
+                </li>
+                {/* <li>
+                  <NavLink to="/settings" className="text-lg">Settings</NavLink>
+                </li> */}
+                <li>
+                  <a onClick={handleLogout} className="text-lg">
+                    {isLoading ? "Logging out..." : "Logout"}
+                  </a>
+                </li>
+              </ul>
+            </div>
+          )}
+        
+        </div>
+      </div>

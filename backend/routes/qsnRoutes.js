@@ -25,5 +25,5 @@ router.post("/approveSolution/:id/:solutionId", protectRoute, approveSolution);
 router.post("/getQsnById", getQsnById );
 router.post("/countQsns", numberOfQsn );
 router.post("/getNoOfUpvotes", getNoOfUpvotes );
-router.post("/getUserPost" , getUserPost );
+router.post("/getUserPost", protectRoute, getUserPost );
 export default router;
