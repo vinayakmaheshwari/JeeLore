@@ -17,7 +17,8 @@ export const ProfilePosts = (props) => {
         },
         body: JSON.stringify({
           id: auth.auth._id,
-        }),
+          status: whatToShow==="Solved" ? "Solved" : "Unsolved"
+        })
       });
       const data = await res.json();
       setPosts(data)
@@ -29,7 +30,7 @@ export const ProfilePosts = (props) => {
 
   useEffect(() => {
     getPosts();
-  }, [auth.auth._id]);
+  }, [auth.auth._id, whatToShow]);
 
   return(
     <div className="flex flex-col justify-start ">
@@ -38,6 +39,7 @@ export const ProfilePosts = (props) => {
         <p onClick={() => setWhatToShow("Solved")} className={`mx-2 text-xl font-bold cursor-pointer ${whatToShow==="Solved" ? "underline" : ""}`}>Solved</p>
         <p onClick={() => setWhatToShow("Unsolved")} className={`mx-2 text-xl font-bold cursor-pointer ${whatToShow==="Unsolved" ? "underline" : ""}`}>Unsolved</p>
       </div>
+      
       </div>
     </div>
   )

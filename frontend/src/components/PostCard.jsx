@@ -70,6 +70,8 @@ export const PostCard = (props) => {
     });
   }, [id, userId]);
 
+  console.log(comment)
+
   return (
     <div className="card mt-5 lg:mt-10 w-full border-b border-t border-accent bg-primary">
       <div className=" flex justify-between">
@@ -204,7 +206,7 @@ export const PostCard = (props) => {
             ></textarea>
             <button
               type="none"
-              className="ml-2 btn bg-blue-700 hover:bg-blue-950 rounded-xl text-white font-bold py-2 px-4 "
+              className="ml-2 btn bg-accent hover:bg-accent/60 rounded-xl text-black font-bold py-2 px-4 "
               onClick={() => {
                 setComment([
                   ...comment,

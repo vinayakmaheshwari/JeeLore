@@ -17,7 +17,7 @@ const router = express.Router();
 router.post("/getPost", getPost);
 router.post("/post", protectRoute, newQsn);
 router.post("/upvote/:id", protectRoute, upvote);
-router.post("/comment/:id", protectRoute, addComment);
+router.post("/comment", protectRoute, addComment);
 router.post("/deleteQsn", protectRoute, deleteQsn);
 router.post("/delete/comment/:id/:commId", protectRoute, deleteComment);
 router.post("/postSolution", protectRoute, postSolution);

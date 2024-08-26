@@ -2,7 +2,7 @@ import Qsn from "../models/qsnModel.js";
 
 export const addComment = async (req, res) => {
   try {
-    const { id: qsnId } = req.params;
+    const { qsnId } = req.body;
     const { text, image } = req.body;
     const userId = req.user._id.toString();
 

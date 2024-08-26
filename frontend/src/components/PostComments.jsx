@@ -16,8 +16,8 @@ export const PostComments = (props) => {
   console.log(commentText)
   return (
     <div className=" pb-2 h-full flex flex-1 flex-col justify-center items-center w-full rounded-b-2xl">
-      <section className="bg-white w-full dark:bg-gray-900  antialiased">
-        <article className="w-full text-base p-4 bg-white rounded-lg dark:bg-gray-900">
+      <section className=" w-full  antialiased">
+        <article className="w-full text-base p-4 bg-primary rounded-lg">
           <footer className="flex justify-between items-center mb-2">
             <div className="flex items-center">
               <p className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white font-semibold">
