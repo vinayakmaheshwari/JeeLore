@@ -1,12 +1,15 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AllContext } from "../../context/contex";
+import { NavLink } from "react-router-dom";
 
 export const ProfilePosts = (props) => {
   const auth = useContext(AllContext);
+  const [posts, setPosts] = useState([]);
+  const [whatToShow, setWhatToShow] = useState("Solved");
 
   const getPosts = async () => {
     try {
-      const res = fetch(`https://backend.jeelore.site/api/qsn/getUserPost`, {
+      const res = await fetch(`https://backend.jeelore.site/api/qsn/getUserPost`, {
         method: "POST",
         credentials: "include",
         headers: {
@@ -16,10 +19,9 @@ export const ProfilePosts = (props) => {
           id: auth.auth._id,
         }),
       });
-
-      console.log(auth.auth._id);
-    //   const data = await res.json();
-      console.log(res);
+      const data = await res.json();
+      setPosts(data)
+      console.log(posts)
     } catch (error) {
       console.log(error, "error in profile Posts component");
     }
@@ -28,4 +30,15 @@ export const ProfilePosts = (props) => {
   useEffect(() => {
     getPosts();
   }, [auth.auth._id]);
+
+  return(
+    <div className="flex flex-col justify-start ">
+      <div className="flex self-start">
+      <div className="flex self-start">
+        <p onClick={() => setWhatToShow("Solved")} className={`mx-2 text-xl font-bold cursor-pointer ${whatToShow==="Solved" ? "underline" : ""}`}>Solved</p>
+        <p onClick={() => setWhatToShow("Unsolved")} className={`mx-2 text-xl font-bold cursor-pointer ${whatToShow==="Unsolved" ? "underline" : ""}`}>Unsolved</p>
+      </div>
+      </div>
+    </div>
+  )
 };

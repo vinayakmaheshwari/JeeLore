@@ -138,19 +138,19 @@ export const PostCard = (props) => {
               )}
               <div className="mr-2 text-center text-accent text-sm lg:text-lg">{noOfUpvotes}</div>
             </div>
-            {/* <div
+            <div
               onClick={() => {
                 setShowComments(!showComments);
                 setShowSoln(false);
               }}
-              className="border-r border-white cursor-pointer hover:bg-base-200"
+              className="border-r border-accent cursor-pointer hover:bg-base-200"
             >
               {showComments ? (
-                <FaComments className="text-xl m-2" />
+                <FaComments className="text-md m-2 text-accent" />
               ) : (
-                <FaRegComments className="text-xl m-2" />
+                <FaRegComments className="text-md m-2 text-accent" />
               )}
-            </div> */}
+            </div>
             <div
               onClick={() => {
                 setShowSoln(!showSoln);
@@ -187,7 +187,7 @@ export const PostCard = (props) => {
         </div>
       </div>
       {showSoln && <UploadSoluton id={id} type={type} answer={answer}/>}
-      {/* {showComments && (
+      {showComments && (
         <>
           <div className="flex justify-center items-center">
             <h2 className="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">
@@ -228,7 +228,7 @@ export const PostCard = (props) => {
             />
           ))}
         </>
-      )} */}
+      )}
     </div>
   );
 };

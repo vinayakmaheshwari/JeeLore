@@ -6,14 +6,14 @@ export const PostComments = (props) => {
   const [userData, setUserData] = useState({});
   const [commText, setCommText] = useState("");
   const [comment, setComment] = useState([{}]);
-  useEffect(() => {
-    const data = getUserById(CommentBy).then((data) => {
-      setUserData(JSON.parse(data));
-    });
-  }, [qsnId]);
+  // useEffect(() => {
+  //   const data = getUserById(CommentBy).then((data) => {
+  //     setUserData(JSON.parse(data));
+  //   });
+  // }, [qsnId]);
 
-  setComment([{pfp: userData.profileImg, userName: userData.userName, text:commentText }]);
-
+  // setComment([{pfp: userData.profileImg, userName: userData.userName, text:commentText }]);
+  console.log(commentText)
   return (
     <div className=" pb-2 h-full flex flex-1 flex-col justify-center items-center w-full rounded-b-2xl">
       <section className="bg-white w-full dark:bg-gray-900  antialiased">
