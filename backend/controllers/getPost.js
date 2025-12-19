@@ -7,7 +7,7 @@ export const getPost = async (req, res) => {
     const { subject, difficulty, type, status, topic } = req.body;
 
     try {
-        const qsn = await Qsn.find({subject: subject, difficulty: difficulty, type: type, status: status, topic:topic }).sort({ createdAt: -1 }).skip(skip).limit(limit);
+        const qsn = await Qsn.find({ subject: subject, difficulty: difficulty, type: type, status: status, topic: topic }).sort({ createdAt: -1 }).skip(skip).limit(limit);
         res.status(200).json(qsn);
     } catch (error) {
         console.log("error in getPostController", error);
@@ -18,11 +18,11 @@ export const getPost = async (req, res) => {
 export const numberOfQsn = async (req, res) => {
     const { subject, difficulty, type, status, topic } = req.body;
     try {
-        const qsn = await Qsn.countDocuments({subject: subject, difficulty: difficulty, type: type, status: status, topic:topic });
+        const qsn = await Qsn.countDocuments({ subject: subject, difficulty: difficulty, type: type, status: status, topic: topic });
         res.status(200).json(qsn);
     } catch (error) {
         console.log("error in getPostController", error);
         res.status(500).json({ error: "internal server error" });
-    }    
+    }
 
 }

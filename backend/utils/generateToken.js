@@ -10,6 +10,6 @@ export const generateTokenSetCookie = (userId, res) => {
         sameSite: "none",
         maxAge: 30 * 24 * 60 * 60 * 1000,
         path: "/",
-        domain: "jeelore.site"
+        // domain: "jeelore.site"
     })
 }

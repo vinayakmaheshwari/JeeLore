@@ -54,16 +54,6 @@ export const Navbar = () => {
                 Upload
               </NavLink>
             </li>
-            <li>
-              <a
-                href={"https://github.com/vinayakmaheshwari/JeeLore"}
-                className="text-xl font-bold"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Contribute
-              </a>
-            </li>
 
             <li>
               <NavLink to="/leaderboard" className="text-xl font-bold">
@@ -106,17 +96,6 @@ export const Navbar = () => {
                   Upload
                 </NavLink>
               </li>
-              <li>
-                <a
-                  href={"https://github.com/vinayakmaheshwari/JeeLore"}
-                  className="text-xl font-bold"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Contribute
-                </a>
-              </li>
-
               <li>
                 <NavLink to="/leaderboard" className="text-xl font-bold">
                   Leaderboard
