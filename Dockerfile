@@ -1,12 +1,13 @@
-
-FROM node:slim
+FROM oven/bun:1.1.0
 
 WORKDIR /app
 
-ADD package*.json /app/
+COPY package.json bun.lockb* ./
 
-RUN npm install
+RUN bun install
 
-COPY backend /app/backend
+COPY backend ./backend
 
-CMD [ "node", "backend/server.js"]
+EXPOSE 2000
+
+CMD ["bun", "backend/server.js"]
