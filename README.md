@@ -1,6 +1,6 @@
 # JeeLore - JEE/NEET Doubt Solving and Practice Platform
 
-[![Website](https://img.shields.io/website?url=https%3A%2F%2Fjeelore.site)](https://jeelore.site)
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Fjeelore.hs.vc)](https://jeelore.hs.vc)
 
 
 JEE Lore is a comprehensive web application designed to help students prepare for JEE and NEET exams. It offers an interactive platform for solving doubts and practicing questions across various difficulty levels and topics. The app aims to provide a personalized learning experience, making exam preparation more effective and efficient.
@@ -54,3 +54,4 @@ We welcome contributions from the community! If you have ideas, suggestions, or 
 If you have any questions, suggestions, or feedback, feel free to reach out at maheshwarivinayak90@gmail.com.
 
 [Visit the Live Project](https://jeelore.site)
+
